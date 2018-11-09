@@ -1,0 +1,22 @@
+[
+  {
+    "Name": "Earth",
+    "Mass": 5.97,
+    "Radius": 6371,
+    "Pos": [
+      0.0,
+      0.0
+    ],
+    "Velocity": 0
+  },
+  {
+    "Name": "Moon",
+    "Mass": 0.073,
+    "Radius": 1737,
+    "Pos": [
+      0.0,
+      0.5
+    ],
+    "Velocity": 0.57
+  }
+]
