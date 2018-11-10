@@ -2,9 +2,10 @@
 The Calculation class to calculate the positions
 """
 import json
+
+import matplotlib.pyplot as plt
 import numpy
 import scipy.constants as s_con
-import matplotlib.pyplot as plt
 
 
 def open_json():
@@ -27,6 +28,7 @@ class Calculation:
         self.num_orbs = len(open_json())
         self.orbs = open_json()
         self.pos = [0, 0]
+        self.velocity = 0
 
     @staticmethod
     def distance(orb2, orb1):
@@ -75,10 +77,10 @@ class Calculation:
 
     def calculate_object_new_position(self, orb_index):
         acceleration = self.calculate_acceleration(orb_index)
-        velocity = self.orbs[orb_index]["Velocity"]
         delta_t = self.delta_t()
+        self.velocity += acceleration * delta_t
 
-        x_new_pos = numpy.multiply(delta_t, velocity)
+        x_new_pos = numpy.multiply(delta_t, self.velocity)
         y_new_pos = numpy.divide((delta_t ** 2), 2) * acceleration
 
         orb_pos2 = [x_new_pos, y_new_pos]
